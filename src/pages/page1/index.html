@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Document</title>
+    <style>
+        .page{
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;
+        }
+        .img-2{
+            position: absolute;
+            left: 0px;
+            top:0px;
+            z-index: 1111;
+            opacity:0;
+        }
+        .img-2,.img-1{
+            width: 200px;
+            height: 200px;
+            pointer-events:none;
+        }
+    </style>
+</head>
+<body>
+    我是page1页面
+    <div class="page">
+        <img src='../../assets/images/ys-1.jpg' class='img-1'>
+        <img src='../../assets/images/ys-2.jpg' class='img-2'>
+    </div>
+
+
+</body>
+<script>
+    // console.log(process.env.BASE_URL,'当前接口的域名')
+
+</script>
+</html>

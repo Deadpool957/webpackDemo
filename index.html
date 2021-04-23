@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 占位符与htmlWebpackPlugin配合使用 -->
+    <!-- 自定义参数 -->
+    <title><%= title %></title>
+</head>
+<body>
+    <div><%= myName %></div>
+    <div>我是webpack测试包</div>
+    <div>11111</div>
+    <div>2222</div>
+    <div>我是index.html文件</div>
+    <input type="text" name="debounce" id="debounce">
+</body>
+<script>
+    var a = 1;
+</script>
+<script type="text/javascript">
+// 函数防抖：某段时间内只执行一次
+    window.onload = function () {
+        //模拟ajax请求
+        function ajax(content) {
+            console.log('ajax request ' + content)
+        }
+        function debounce(fun, delay) {
+            return function (args) {
+                console.log(fun,'函数',fun.id)
+                //获取函数的作用域和变量
+                let that = this
+                let _args = args
+                //每次事件被触发，都会清除当前的timeer，然后重写设置超时调用
+                clearTimeout(fun.id)
+                fun.id = setTimeout(function () {
+                    fun.call(that, _args)
+                }, delay)
+            }
+        }
+        let inputDebounce = document.getElementById('debounce')
+        let debounceAjax = debounce(ajax, 500)
+        inputDebounce.addEventListener('keyup', function (e) {
+            debounceAjax(e.target.value)
+        })
+    }
+    //函数节流是间隔时间执行，不管事件触发有多频繁,都会保证在规定时间内一定会执行一次真正的事件处理函数
+    
+</script>
+</html>

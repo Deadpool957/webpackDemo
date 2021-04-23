@@ -1,0 +1,1 @@
+console.log(process.env.BASE_URL,'当前接口的域名')
